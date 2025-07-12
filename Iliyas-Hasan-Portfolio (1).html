@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iliyas Hasan - Experience Design That Performs</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#FF3535',
+secondary: '#FFFFFF'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+},
+fontFamily: {
+'sf': ['SF Pro Display', 'system-ui', 'sans-serif'],
+'inter': ['Inter', 'system-ui', 'sans-serif']
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+body {
+font-family: 'Inter', system-ui, sans-serif;
+}
+.sf-font {
+font-family: 'SF Pro Display', system-ui, sans-serif;
+}
+.carousel-container {
+scroll-behavior: smooth;
+}
+.project-card {
+transition: all 0.3s ease;
+}
+.project-card:hover {
+transform: scale(1.05);
+}
+.blur-overlay {
+backdrop-filter: blur(20px);
+}
+.hero-bg {
+background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(255,53,53,0.1) 100%);
+}
+.marquee {
+animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+0% { transform: translateX(100%); }
+100% { transform: translateX(-100%); }
+}
+.fade-in {
+opacity: 0;
+transform: translateY(20px);
+transition: all 0.6s ease;
+}
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+</style>
+</head>
+<body class="bg-black text-white min-h-screen">
+<nav class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+<div class="sf-font text-xl font-bold text-white">
+Iliyas Hasan
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#home" class="text-white hover:text-primary transition-colors">Home</a>
+<a href="#projects" class="text-white hover:text-primary transition-colors">Projects</a>
+<a href="#process" class="text-white hover:text-primary transition-colors">Process</a>
+<a href="#reviews" class="text-white hover:text-primary transition-colors">Reviews</a>
+<a href="#contact" class="text-white hover:text-primary transition-colors">Contact</a>
+</div>
+<button class="md:hidden w-8 h-8 flex items-center justify-center">
+<i class="ri-menu-line text-xl"></i>
+</button>
+</div>
+</nav>
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20minimalist%20design%20studio%20workspace%20with%20sleek%20computer%20screens%20showing%20UI%20designs%2C%20dark%20ambient%20lighting%2C%20professional%20creative%20environment%2C%20high-tech%20atmosphere%2C%20blurred%20background%20with%20depth%20of%20field%20effect%2C%20cinematic%20lighting%2C%20contemporary%20office%20space&width=1920&height=1080&seq=hero-bg&orientation=landscape')"></div>
+<div class="absolute inset-0 hero-bg"></div>
+</div>
+<div class="relative z-10 text-center max-w-4xl mx-auto px-6">
+<h1 class="sf-font text-5xl md:text-7xl font-bold mb-6 text-white">
+Experience Design<br>
+<span class="text-primary">That Performs</span>
+</h1>
+<p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+Crafting digital experiences that captivate users and drive business results through strategic design thinking.
+</p>
+<button id="start-watching-btn" class="bg-primary hover:bg-red-600 text-white px-8 py-4 !rounded-button font-semibold text-lg transition-all duration-300 flex items-center gap-3 mx-auto whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-play-fill"></i>
+</div>
+Start Watching
+</button>
+<div id="video-modal" class="fixed inset-0 z-50 hidden">
+<div id="modal-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+<div class="relative z-10 max-w-4xl w-full mx-auto mt-20 px-6">
+<div class="bg-gray-900 !rounded-lg overflow-hidden">
+<div class="flex items-center justify-between p-4 border-b border-gray-800">
+<h3 class="text-white font-semibold">Portfolio Showcase</h3>
+<button id="close-modal-btn" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+<i class="ri-close-line text-xl"></i>
+</button>
+</div>
+<div class="aspect-video bg-black">
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-arrow-down-line text-white text-xl"></i>
+</div>
+</div>
+</section>
+<section id="projects" class="py-20 bg-black">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex items-center justify-between mb-12">
+<div>
+<h2 class="sf-font text-4xl font-bold text-white mb-4">Featured Projects</h2>
+<p class="text-gray-400 text-lg">Discover the stories behind successful digital products</p>
+</div>
+<div class="flex gap-4">
+<button id="prev-btn" class="w-12 h-12 bg-gray-800 hover:bg-gray-700 !rounded-button flex items-center justify-center transition-colors">
+<i class="ri-arrow-left-line text-white"></i>
+</button>
+<button id="next-btn" class="w-12 h-12 bg-gray-800 hover:bg-gray-700 !rounded-button flex items-center justify-center transition-colors">
+<i class="ri-arrow-right-line text-white"></i>
+</button>
+</div>
+</div>
+<div class="overflow-hidden">
+<div id="project-carousel" class="flex gap-6 transition-transform duration-500 ease-out">
+<div class="project-card flex-none w-80 bg-gray-900 !rounded-lg overflow-hidden group cursor-pointer">
+<div class="relative h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Modern%20fintech%20mobile%20app%20interface%20design%20showing%20clean%20dashboard%20with%20financial%20charts%2C%20payment%20features%2C%20and%20user-friendly%20navigation%2C%20professional%20UI%20design%2C%20contemporary%20banking%20app%20mockup%2C%20sleek%20mobile%20interface&width=320&height=192&seq=project-1&orientation=landscape"
+alt="GoodBreach Project" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<a href="https://readdy.ai/home/a64f17fa-256a-41a6-9240-7497061eea12/22ec6b72-33da-4147-a980-a3672f69f7a9" data-readdy="true" class="bg-primary hover:bg-red-600 text-white w-16 h-16 !rounded-full flex items-center justify-center">
+<i class="ri-play-fill text-2xl"></i>
+</a>
+</div>
+</div>
+<div class="p-6">
+<h3 class="sf-font text-xl font-bold text-white mb-2">GoodBreach</h3>
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="px-3 py-1 bg-gray-800 text-gray-300 text-sm !rounded-full">Fintech</span>
+<span class="px-3 py-1 bg-gray-800 text-gray-300 text-sm !rounded-full">Mobile</span>
+<span class="px-3 py-1 bg-gray-800 text-gray-300 text-sm !rounded-full">UK</span>
+</div>
+<p class="text-gray-400 text-sm">Revolutionary fintech platform that simplifies financial management for modern users.</p>
+</div>
+</div>
+<div class="project-card flex-none w-80 bg-gray-900 !rounded-lg overflow-hidden group cursor-pointer">
+<div class="relative h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20job%20portal%20website%20design%20with%20modern%20interface%2C%20job%20listings%2C%20search%20functionality%2C%20clean%20layout%2C%20corporate%20design%2C%20recruitment%20platform%20UI%2C%20contemporary%20web%20application&width=320&height=192&seq=project-2&orientation=landscape"
+alt="MockPlacement Project" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<a href="https://readdy.ai/home/a64f17fa-256a-41a6-9240-7497061eea12/22ec6b72-33da-4147-a980-a3672f69f7a9" data-readdy="true" class="bg-primary hover:bg-red-600 text-white w-16 h-16 !rounded-full flex items-center justify-center">
+<i class="ri-play-fill text-2xl"></i>
+</a>
+</div>
+</div>
+<div class="p-6">
+<h3 class="sf-font text-xl font-bold text-white mb-2">MockPlacement</h3>
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="px-3 py-1 bg-gray-800 text-gray-300 text-sm !rounded-full">Job Portal</span>
+<span class="px-3 py-1 bg-gray-800 text-gray-300 text-sm !rounded-full">Web</span>
+</div>
+<p class="text-gray-400 text-sm">Comprehensive job portal connecting talented professionals with leading companies.</p>
+</div>
+</div>
+<div class="project-card flex-none w-80 bg-gray-900 !rounded-lg overflow-hidden group cursor-pointer">
+<div class="relative h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=AI-powered%20scheduling%20dashboard%20interface%20with%20modern%20design%2C%20calendar%20integration%2C%20smart%20automation%20features%2C%20clean%20UI%20elements%2C%20professional%20tool%20design%2C%20contemporary%20dashboard%20layout&width=320&height=192&seq=project-3&orientation=landscape"
+alt="Talencred Scheduler Project" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<a href="https://readdy.ai/home/a64f17fa-256a-41a6-9240-7497061eea12/22ec6b72-33da-4147-a980-a3672f69f7a9" data-readdy="true" class="bg-primary hover:bg-red-600 text-white w-16 h-16 !rounded-full flex items-center justify-center">
+<i class="ri-play-fill text-2xl"></i>
+</a>
+</div>
+</div>
+<div class="p-6">
+<h3 class="sf-font text-xl font-bold text-white mb-2">Talencred Scheduler</h3>
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="px-3 py-1 bg-gray-800 text-gray-300 text-sm !rounded-full">AI Tool</span>
+<span class="px-3 py-1 bg-gray-800 text-gray-300 text-sm !rounded-full">Dashboard</span>
+</div>
+<p class="text-gray-400 text-sm">Intelligent scheduling platform that optimizes time management through AI-driven insights.</p>
+</div>
+</div>
+<div class="project-card flex-none w-80 bg-gray-900 !rounded-lg overflow-hidden group cursor-pointer">
+<div class="relative h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Mentorship%20platform%20UX%20flow%20design%20showing%20user%20journey%2C%20wireframes%2C%20user%20experience%20mapping%2C%20modern%20interface%20design%2C%20professional%20UX%20documentation%2C%20clean%20design%20system&width=320&height=192&seq=project-4&orientation=landscape"
+alt="MentorMatch Project" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<a href="https://readdy.ai/home/a64f17fa-256a-41a6-9240-7497061eea12/22ec6b72-33da-4147-a980-a3672f69f7a9" data-readdy="true" class="bg-primary hover:bg-red-600 text-white w-16 h-16 !rounded-full flex items-center justify-center">
+<i class="ri-play-fill text-2xl"></i>
+</a>
+</div>
+</div>
+<div class="p-6">
+<h3 class="sf-font text-xl font-bold text-white mb-2">MentorMatch</h3>
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="px-3 py-1 bg-gray-800 text-gray-300 text-sm !rounded-full">UX Flows</span>
+</div>
+<p class="text-gray-400 text-sm">Comprehensive UX flow design for connecting mentors and mentees in professional growth.</p>
+</div>
+</div>
+<div class="project-card flex-none w-80 bg-gray-900 !rounded-lg overflow-hidden group cursor-pointer">
+<div class="relative h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Modern%20e-commerce%20mobile%20app%20interface%20design%20with%20product%20catalog%2C%20shopping%20cart%2C%20payment%20integration%2C%20contemporary%20retail%20app%20design%2C%20clean%20mobile%20commerce%20interface&width=320&height=192&seq=project-5&orientation=landscape"
+alt="CoccoPocco Project" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<a href="https://readdy.ai/home/a64f17fa-256a-41a6-9240-7497061eea12/22ec6b72-33da-4147-a980-a3672f69f7a9" data-readdy="true" class="bg-primary hover:bg-red-600 text-white w-16 h-16 !rounded-full flex items-center justify-center">
+<i class="ri-play-fill text-2xl"></i>
+</a>
+</div>
+</div>
+<div class="p-6">
+<h3 class="sf-font text-xl font-bold text-white mb-2">CoccoPocco</h3>
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="px-3 py-1 bg-gray-800 text-gray-300 text-sm !rounded-full">eCom</span>
+<span class="px-3 py-1 bg-gray-800 text-gray-300 text-sm !rounded-full">App</span>
+</div>
+<p class="text-gray-400 text-sm">Innovative e-commerce platform delivering seamless shopping experiences across devices.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="process" class="py-20 bg-gray-950">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="sf-font text-4xl font-bold text-white mb-4">Behind the Scenes</h2>
+<p class="text-gray-400 text-lg max-w-2xl mx-auto">Explore the creative process and methodologies that bring exceptional designs to life</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-gray-900 !rounded-lg overflow-hidden group hover:scale-105 transition-transform duration-300">
+<div class="relative">
+<div class="h-48 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Design%20wireframes%20and%20sketches%20on%20paper%20and%20digital%20screens%2C%20UX%20design%20process%20documentation%2C%20creative%20brainstorming%20session%2C%20professional%20design%20workflow%2C%20modern%20design%20studio%20environment&width=400&height=192&seq=process-1&orientation=landscape')"></div>
+<button class="preview-btn absolute bottom-4 right-4 bg-primary/90 hover:bg-primary text-white px-4 py-2 !rounded-button flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-eye-line"></i>
+</div>
+<span>Preview Screens</span>
+</button>
+</div>
+<div class="p-6">
+<h3 class="sf-font text-xl font-bold text-white mb-2">Wireframes & Sketches</h3>
+<p class="text-gray-400 mb-4">Early-stage ideation and concept development through rapid prototyping.</p>
+<div class="space-y-3">
+<div class="flex items-center text-gray-400">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-pencil-ruler-2-line"></i>
+</div>
+<span>User flow mapping</span>
+</div>
+<div class="flex items-center text-gray-400">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-layout-masonry-line"></i>
+</div>
+<span>Low-fidelity wireframes</span>
+</div>
+<div class="flex items-center text-gray-400">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-tools-line"></i>
+</div>
+<span>Interactive prototypes</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-gray-900 !rounded-lg overflow-hidden group hover:scale-105 transition-transform duration-300">
+<div class="relative">
+<div class="h-48 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Design%20system%20components%20library%20showing%20UI%20elements%2C%20buttons%2C%20forms%2C%20typography%2C%20color%20palette%2C%20modern%20component%20library%2C%20systematic%20design%20approach&width=400&height=192&seq=process-2&orientation=landscape')"></div>
+<button class="preview-btn absolute bottom-4 right-4 bg-primary/90 hover:bg-primary text-white px-4 py-2 !rounded-button flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-eye-line"></i>
+</div>
+<span>Preview Screens</span>
+</button>
+</div>
+<div class="p-6">
+<h3 class="sf-font text-xl font-bold text-white mb-2">Component Libraries</h3>
+<p class="text-gray-400">Systematic approach to building scalable and consistent design systems.</p>
+</div>
+</div>
+<div class="bg-gray-900 !rounded-lg overflow-hidden group hover:scale-105 transition-transform duration-300">
+<div class="relative">
+<div class="h-48 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Figma%20interface%20showing%20design%20collaboration%2C%20team%20workspace%2C%20design%20handoff%20process%2C%20professional%20design%20tool%20interface%2C%20collaborative%20design%20environment&width=400&height=192&seq=process-3&orientation=landscape')"></div>
+<button class="preview-btn absolute bottom-4 right-4 bg-primary/90 hover:bg-primary text-white px-4 py-2 !rounded-button flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-eye-line"></i>
+</div>
+<span>Preview Screens</span>
+</button>
+</div>
+<div class="p-6">
+<h3 class="sf-font text-xl font-bold text-white mb-2">Figma Collaboration</h3>
+<p class="text-gray-400">Seamless collaboration and handoff processes for development teams.</p>
+</div>
+</div>
+</div>
+<div id="preview-modal" class="fixed inset-0 z-50 hidden">
+<div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+<div class="relative z-10 max-w-6xl w-full mx-auto mt-20 px-6">
+<div class="bg-gray-900 !rounded-lg overflow-hidden">
+<div class="flex items-center justify-between p-4 border-b border-gray-800">
+<h3 class="text-white font-semibold" id="preview-title"></h3>
+<button id="close-preview-btn" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+<i class="ri-close-line text-xl"></i>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
+<div id="preview-screens" class="col-span-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="reviews" class="py-20 bg-black">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="sf-font text-4xl font-bold text-white mb-4">Client Reviews</h2>
+<p class="text-gray-400 text-lg">What industry leaders say about working with me</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-gray-900 p-8 !rounded-lg">
+<div class="flex items-center mb-4">
+<div class="flex text-yellow-400 text-lg">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<blockquote class="text-gray-300 mb-6 text-lg leading-relaxed">
+"Structured like a showrunner. Iliyas brings exceptional organization and creative vision to every project, delivering results that exceed expectations."
+</blockquote>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-primary !rounded-full flex items-center justify-center mr-4">
+<i class="ri-building-line text-white"></i>
+</div>
+<div>
+<div class="text-white font-semibold">Sarah Chen</div>
+<div class="text-gray-400 text-sm">Product Manager, Talencred</div>
+</div>
+</div>
+</div>
+<div class="bg-gray-900 p-8 !rounded-lg">
+<div class="flex items-center mb-4">
+<div class="flex text-yellow-400 text-lg">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<blockquote class="text-gray-300 mb-6 text-lg leading-relaxed">
+"Fast, clear, consistent. The design process was seamless and the final product perfectly aligned with our vision and user needs."
+</blockquote>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-primary !rounded-full flex items-center justify-center mr-4">
+<i class="ri-briefcase-line text-white"></i>
+</div>
+<div>
+<div class="text-white font-semibold">Marcus Rodriguez</div>
+<div class="text-gray-400 text-sm">CEO, MockPlacement</div>
+</div>
+</div>
+</div>
+<div class="bg-gray-900 p-8 !rounded-lg">
+<div class="flex items-center mb-4">
+<div class="flex text-yellow-400 text-lg">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<blockquote class="text-gray-300 mb-6 text-lg leading-relaxed">
+"Exceptional attention to detail and user-centered approach. The design significantly improved our user engagement and conversion rates."
+</blockquote>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-primary !rounded-full flex items-center justify-center mr-4">
+<i class="ri-store-line text-white"></i>
+</div>
+<div>
+<div class="text-white font-semibold">Emma Thompson</div>
+<div class="text-gray-400 text-sm">Founder, CoccoPocco</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="py-20 bg-gray-950">
+<div class="max-w-4xl mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="sf-font text-4xl font-bold text-white mb-4">Let's Design Your Next Hit</h2>
+<p class="text-gray-400 text-lg">Ready to create something extraordinary? Let's discuss your project and bring your vision to life.</p>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-white font-medium mb-2">Name</label>
+<input type="text" class="w-full bg-gray-900 border border-gray-700 !rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="Your full name">
+</div>
+<div>
+<label class="block text-white font-medium mb-2">Email</label>
+<input type="email" class="w-full bg-gray-900 border border-gray-700 !rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none transition-colors" placeholder="your@email.com">
+</div>
+</div>
+<div>
+<label class="block text-white font-medium mb-2">Work Type</label>
+<div class="relative">
+<button type="button" id="work-type-btn" class="w-full bg-gray-900 border border-gray-700 !rounded-lg px-4 py-3 text-white text-left flex items-center justify-between focus:border-primary focus:outline-none transition-colors">
+<span id="selected-work-type">Select project type</span>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div id="work-type-dropdown" class="absolute top-full left-0 right-0 bg-gray-900 border border-gray-700 !rounded-lg mt-1 hidden z-10">
+<div class="py-2">
+<button type="button" class="w-full px-4 py-2 text-left text-white hover:bg-gray-800 transition-colors" data-value="web-design">Web Design</button>
+<button type="button" class="w-full px-4 py-2 text-left text-white hover:bg-gray-800 transition-colors" data-value="mobile-app">Mobile App</button>
+<button type="button" class="w-full px-4 py-2 text-left text-white hover:bg-gray-800 transition-colors" data-value="dashboard">Dashboard</button>
+<button type="button" class="w-full px-4 py-2 text-left text-white hover:bg-gray-800 transition-colors" data-value="branding">Branding</button>
+<button type="button" class="w-full px-4 py-2 text-left text-white hover:bg-gray-800 transition-colors" data-value="other">Other</button>
+</div>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-white font-medium mb-2">Message</label>
+<textarea rows="6" class="w-full bg-gray-900 border border-gray-700 !rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none transition-colors resize-none" placeholder="Tell me about your project, goals, and timeline..."></textarea>
+</div>
+<button type="submit" class="w-full bg-primary hover:bg-red-600 text-white py-4 !rounded-button font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-3 whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-send-plane-line"></i>
+</div>
+Send Brief
+</button>
+</form>
+<div class="flex items-center justify-center gap-6 mt-12">
+<a href="#" class="w-12 h-12 bg-gray-800 hover:bg-gray-700 !rounded-full flex items-center justify-center transition-colors">
+<i class="ri-linkedin-fill text-white text-xl"></i>
+</a>
+<a href="#" class="w-12 h-12 bg-gray-800 hover:bg-gray-700 !rounded-full flex items-center justify-center transition-colors">
+<i class="ri-github-fill text-white text-xl"></i>
+</a>
+<a href="#" class="w-12 h-12 bg-gray-800 hover:bg-gray-700 !rounded-full flex items-center justify-center transition-colors">
+<i class="ri-behance-fill text-white text-xl"></i>
+</a>
+</div>
+</div>
+</section>
+<footer class="bg-black border-t border-gray-800 py-12">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center">
+<p class="text-gray-400 mb-4">© 2025 Iliyas Hasan – Designer. Director. Thinker.</p>
+<div class="overflow-hidden">
+<div class="marquee text-gray-600 whitespace-nowrap">
+Let's binge your next product → Contact now → Let's binge your next product → Contact now →
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script id="carousel-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+const carousel = document.getElementById('project-carousel');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+let currentIndex = 0;
+const cardWidth = 320 + 24;
+const visibleCards = Math.floor(window.innerWidth / cardWidth);
+const totalCards = carousel.children.length;
+const maxIndex = Math.max(0, totalCards - visibleCards);
+function updateCarousel() {
+const translateX = -currentIndex * cardWidth;
+carousel.style.transform = `translateX(${translateX}px)`;
+}
+nextBtn.addEventListener('click', function() {
+if (currentIndex < maxIndex) {
+currentIndex++;
+updateCarousel();
+}
+});
+prevBtn.addEventListener('click', function() {
+if (currentIndex > 0) {
+currentIndex--;
+updateCarousel();
+}
+});
+window.addEventListener('resize', function() {
+const newVisibleCards = Math.floor(window.innerWidth / cardWidth);
+const newMaxIndex = Math.max(0, totalCards - newVisibleCards);
+if (currentIndex > newMaxIndex) {
+currentIndex = newMaxIndex;
+updateCarousel();
+}
+});
+});
+</script>
+<script id="dropdown-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+const workTypeBtn = document.getElementById('work-type-btn');
+const workTypeDropdown = document.getElementById('work-type-dropdown');
+const selectedWorkType = document.getElementById('selected-work-type');
+const dropdownOptions = workTypeDropdown.querySelectorAll('button');
+workTypeBtn.addEventListener('click', function() {
+workTypeDropdown.classList.toggle('hidden');
+});
+dropdownOptions.forEach(option => {
+option.addEventListener('click', function() {
+const value = this.getAttribute('data-value');
+const text = this.textContent;
+selectedWorkType.textContent = text;
+workTypeDropdown.classList.add('hidden');
+});
+});
+document.addEventListener('click', function(e) {
+if (!workTypeBtn.contains(e.target) && !workTypeDropdown.contains(e.target)) {
+workTypeDropdown.classList.add('hidden');
+}
+});
+});
+</script>
+<script id="scroll-animations">
+document.addEventListener('DOMContentLoaded', function() {
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver(function(entries) {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, observerOptions);
+const fadeElements = document.querySelectorAll('.fade-in');
+fadeElements.forEach(el => observer.observe(el));
+const previewModal = document.getElementById('preview-modal');
+const previewTitle = document.getElementById('preview-title');
+const previewScreens = document.getElementById('preview-screens');
+const closePreviewBtn = document.getElementById('close-preview-btn');
+const previewBtns = document.querySelectorAll('.preview-btn');
+const previewData = {
+'Wireframes & Sketches': [
+'https://readdy.ai/api/search-image?query=User%20flow%20diagram%20with%20wireframe%20sketches%2C%20professional%20UX%20design%20process%2C%20modern%20design%20methodology%2C%20clean%20wireframe%20layout&width=400&height=300&seq=wireframe-1&orientation=landscape',
+'https://readdy.ai/api/search-image?query=Low%20fidelity%20wireframe%20sketches%20for%20mobile%20app%20interface%2C%20professional%20UX%20design%20process%2C%20modern%20wireframe%20style%2C%20clean%20layout%20design&width=400&height=300&seq=wireframe-2&orientation=landscape',
+'https://readdy.ai/api/search-image?query=Interactive%20prototype%20screens%20showing%20user%20flow%2C%20professional%20UX%20design%20process%2C%20modern%20interface%20design%2C%20clean%20prototype%20layout&width=400&height=300&seq=wireframe-3&orientation=landscape'
+],
+'Component Libraries': [
+'https://readdy.ai/api/search-image?query=Design%20system%20showing%20button%20components%20and%20typography%2C%20professional%20UI%20design%20system%2C%20modern%20component%20library%2C%20clean%20design%20elements&width=400&height=300&seq=components-1&orientation=landscape',
+'https://readdy.ai/api/search-image?query=Design%20system%20showing%20form%20elements%20and%20input%20fields%2C%20professional%20UI%20design%20system%2C%20modern%20component%20library%2C%20clean%20form%20design&width=400&height=300&seq=components-2&orientation=landscape',
+'https://readdy.ai/api/search-image?query=Design%20system%20showing%20color%20palette%20and%20icons%2C%20professional%20UI%20design%20system%2C%20modern%20component%20library%2C%20clean%20design%20tokens&width=400&height=300&seq=components-3&orientation=landscape'
+],
+'Figma Collaboration': [
+'https://readdy.ai/api/search-image?query=Figma%20workspace%20showing%20team%20collaboration%20features%2C%20professional%20design%20tool%20interface%2C%20modern%20design%20workflow%2C%20clean%20team%20workspace&width=400&height=300&seq=figma-1&orientation=landscape',
+'https://readdy.ai/api/search-image?query=Figma%20interface%20showing%20design%20handoff%20process%2C%20professional%20design%20tool%20interface%2C%20modern%20design%20workflow%2C%20clean%20developer%20handoff&width=400&height=300&seq=figma-2&orientation=landscape',
+'https://readdy.ai/api/search-image?query=Figma%20prototype%20mode%20showing%20interactive%20connections%2C%20professional%20design%20tool%20interface%2C%20modern%20design%20workflow%2C%20clean%20prototype%20view&width=400&height=300&seq=figma-3&orientation=landscape'
+]
+};
+function openPreviewModal(title) {
+previewTitle.textContent = title;
+previewScreens.innerHTML = '';
+previewData[title].forEach(imageUrl => {
+const div = document.createElement('div');
+div.className = 'aspect-[4/3] bg-gray-800 !rounded-lg overflow-hidden';
+div.innerHTML = `<img src="${imageUrl}" alt="${title} preview" class="w-full h-full object-cover">`;
+previewScreens.appendChild(div);
+});
+previewModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+}
+function closePreviewModal() {
+previewModal.classList.add('hidden');
+document.body.style.overflow = '';
+}
+previewBtns.forEach(btn => {
+btn.addEventListener('click', function() {
+const title = this.closest('.bg-gray-900').querySelector('h3').textContent;
+openPreviewModal(title);
+});
+});
+closePreviewBtn.addEventListener('click', closePreviewModal);
+previewModal.querySelector('.absolute').addEventListener('click', function(e) {
+if (e.target === this) closePreviewModal();
+});
+});
+</script>
+<script id="video-modal">
+document.addEventListener('DOMContentLoaded', function() {
+const startWatchingBtn = document.getElementById('start-watching-btn');
+const videoModal = document.getElementById('video-modal');
+const modalOverlay = document.getElementById('modal-overlay');
+const closeModalBtn = document.getElementById('close-modal-btn');
+function openModal() {
+videoModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+videoModal.classList.add('hidden');
+document.body.style.overflow = '';
+}
+startWatchingBtn.addEventListener('click', openModal);
+closeModalBtn.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', closeModal);
+});
+</script>
+<script id="smooth-scroll">
+document.addEventListener('DOMContentLoaded', function() {
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+navLinks.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+const offsetTop = targetElement.offsetTop - 80;
+window.scrollTo({
+top: offsetTop,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+</body>
+</html>
